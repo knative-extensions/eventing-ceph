@@ -6,8 +6,8 @@
 [![LICENSE](https://img.shields.io/github/license/knative/eventing-contrib.svg)](https://github.com/knative-sandbox/eventing-ceph/blob/master/LICENSE)
 [![Slack Status](https://img.shields.io/badge/slack-join_chat-white.svg?logo=slack&style=social)](https://knative.slack.com)
 
-The Knative Eventing Ceph project provides source implementation that
-registers events for Ceph storage notifications.
+The Knative Eventing Ceph project provides source implementation that registers
+events for Ceph storage notifications.
 
 For complete documentation about Knative Eventing, see the following repos:
 
