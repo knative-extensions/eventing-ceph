@@ -26,7 +26,7 @@ import (
 
 	cloudevents "github.com/cloudevents/sdk-go/v2"
 	"go.uber.org/zap"
-	ceph "knative.dev/eventing-ceph/pkg/apis/v1alpha1"
+	ceph "knative.dev/eventing-ceph/pkg/apis/bindings/v1alpha1"
 	"knative.dev/eventing/pkg/adapter/v2"
 	"knative.dev/pkg/logging"
 )

@@ -36,24 +36,24 @@ chmod +x ${CODEGEN_PKG}/generate-groups.sh
 chmod +x ${KNATIVE_CODEGEN_PKG}/hack/generate-knative.sh
 
 # Uncomment if/when needed for ceph
-#API_DIRS_SOURCES_AND_BINDINGS=(pkg )
-#
-#for DIR in "${API_DIRS_SOURCES_AND_BINDINGS[@]}"; do
-#  # generate the code with:
-#  # --output-base    because this script should also be able to run inside the vendor dir of
-#  #                  k8s.io/kubernetes. The output-base is needed for the generators to output into the vendor dir
-#  #                  instead of the $GOPATH directly. For normal projects this can be dropped.
-#  ${CODEGEN_PKG}/generate-groups.sh "deepcopy,client,informer,lister" \
-#    "knative.dev/eventing-ceph/${DIR}/client" "knative.dev/eventing-ceph/${DIR}/apis" \
-#    "sources:v1alpha1 bindings:v1alpha1" \
-#    --go-header-file ${REPO_ROOT_DIR}/hack/boilerplate.go.txt
-#
-#  # Knative Injection
-#  ${KNATIVE_CODEGEN_PKG}/hack/generate-knative.sh "injection" \
-#    "knative.dev/eventing-ceph/${DIR}/client" "knative.dev/eventing-ceph/${DIR}/apis" \
-#    "sources:v1alpha1 bindings:v1alpha1" \
-#    --go-header-file ${REPO_ROOT_DIR}/hack/boilerplate.go.txt
-#done
+API_DIRS_SOURCES_AND_BINDINGS=(pkg )
+
+for DIR in "${API_DIRS_SOURCES_AND_BINDINGS[@]}"; do
+  # generate the code with:
+  # --output-base    because this script should also be able to run inside the vendor dir of
+  #                  k8s.io/kubernetes. The output-base is needed for the generators to output into the vendor dir
+  #                  instead of the $GOPATH directly. For normal projects this can be dropped.
+  ${CODEGEN_PKG}/generate-groups.sh "deepcopy,client,informer,lister" \
+    "knative.dev/eventing-ceph/${DIR}/client" "knative.dev/eventing-ceph/${DIR}/apis" \
+    "sources:v1alpha1" \
+    --go-header-file ${REPO_ROOT_DIR}/hack/boilerplate.go.txt
+
+  # Knative Injection
+  ${KNATIVE_CODEGEN_PKG}/hack/generate-knative.sh "injection" \
+    "knative.dev/eventing-ceph/${DIR}/client" "knative.dev/eventing-ceph/${DIR}/apis" \
+    "sources:v1alpha1" \
+    --go-header-file ${REPO_ROOT_DIR}/hack/boilerplate.go.txt
+done
 
 # Make sure our dependencies are up-to-date
 ${REPO_ROOT_DIR}/hack/update-deps.sh
