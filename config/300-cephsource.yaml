@@ -22,7 +22,12 @@ metadata:
   annotations:
     registry.knative.dev/eventTypes: |
       [
-        { "type": "com.ceph.notifications" }
+        { "type": "com.amazonaws.s3:ObjectCreated:Put" }
+        { "type": "com.amazonaws.s3:ObjectCreated:Post" }
+        { "type": "com.amazonaws.s3:ObjectCreated:Copy" }
+        { "type": "com.amazonaws.s3:ObjectCreated:CompleteMultipartUpload" }
+        { "type": "com.amazonaws.s3:ObjectRemoved:Delete" }
+        { "type": "com.amazonaws.s3:ObjectRemoved:DeleteMarkerCreated" }
       ]
   name: cephsources.sources.knative.dev
 spec:

@@ -89,7 +89,7 @@ rules:
 
   # EventTypes admin
   - apiGroups:
-      - eventing.knative.dev
+      - sources.knative.dev
     resources:
       - eventtypes
     verbs: *everything
@@ -105,6 +105,13 @@ rules:
       - "update"
       - "list"
       - "watch"
+
+  # For Leader Election
+  - apiGroups:
+      - "coordination.k8s.io"
+    resources:
+      - leases
+    verbs: *everything
 
   # For actually registering our webhook.
   - apiGroups:

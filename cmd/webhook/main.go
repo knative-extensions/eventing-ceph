@@ -17,7 +17,6 @@ package main
 
 import (
 	"context"
-	"fmt"
 
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	"knative.dev/pkg/configmap"
@@ -26,7 +25,6 @@ import (
 	"knative.dev/pkg/logging"
 	"knative.dev/pkg/metrics"
 	"knative.dev/pkg/signals"
-	"knative.dev/pkg/system"
 	"knative.dev/pkg/webhook"
 	"knative.dev/pkg/webhook/certificates"
 	"knative.dev/pkg/webhook/configmaps"
@@ -51,7 +49,7 @@ func NewDefaultingAdmissionController(ctx context.Context, cmw configmap.Watcher
 	return defaulting.NewAdmissionController(ctx,
 
 		// Name of the resource webhook.
-		fmt.Sprintf("defaulting.webhook.%s.knative.dev", system.Namespace()),
+		"defaulting.webhook.ceph.sources.knative.dev",
 
 		// The path on which to serve the webhook.
 		"/defaulting",
@@ -76,7 +74,7 @@ func NewValidationAdmissionController(ctx context.Context, cmw configmap.Watcher
 	return validation.NewAdmissionController(ctx,
 
 		// Name of the resource webhook.
-		fmt.Sprintf("validation.webhook.%s.knative.dev", system.Namespace()),
+		"validation.webhook.ceph.sources.knative.dev",
 
 		// The path on which to serve the webhook.
 		"/resource-validation",
@@ -104,7 +102,7 @@ func NewConfigValidationController(ctx context.Context, cmw configmap.Watcher) *
 	return configmaps.NewAdmissionController(ctx,
 
 		// Name of the configmap webhook.
-		fmt.Sprintf("config.webhook.%s.knative.dev", system.Namespace()),
+		"config.webhook.ceph.sources.knative.dev",
 
 		// The path on which to serve the webhook.
 		"/config-validation",
@@ -122,7 +120,7 @@ func main() {
 	ctx := webhook.WithOptions(signals.NewContext(), webhook.Options{
 		ServiceName: admissionWebhookName,
 		Port:        8443,
-		SecretName:  "webhook-certs",
+		SecretName:  "ceph-webhook-certs",
 	})
 
 	sharedmain.WebhookMainWithContext(ctx, admissionWebhookName,

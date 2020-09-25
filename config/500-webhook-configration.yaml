@@ -66,7 +66,7 @@ webhooks:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: webhook-certs
+  name: ceph-webhook-certs
   namespace: knative-ceph
   labels:
     ceph.eventing.knative.dev/release: devel
