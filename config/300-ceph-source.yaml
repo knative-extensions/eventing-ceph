@@ -2,8 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ceph-bucket-notification-source
+  namespace: knative-sources
   labels:
     app: ceph-source
+    contrib.eventing.knative.dev/release: devel
 spec:
   selector:
     matchLabels:
@@ -36,6 +38,9 @@ apiVersion: sources.knative.dev/v1alpha2
 kind: SinkBinding
 metadata:
   name: ceph-source-sinkbinding
+  namespace: knative-sources
+  labels:
+    contrib.eventing.knative.dev/release: devel
 spec:
   subject:
     apiVersion: apps/v1
