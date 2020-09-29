@@ -22,9 +22,7 @@ import (
 
 // SetDefaults mutates CephSource.
 func (s *CephSource) SetDefaults(ctx context.Context) {
-	//Add code for Mutating admission webhook.
-
-	//example: If ServiceAccountName is unspecified, default to the "default" service account.
+	//If ServiceAccountName is unspecified, default to the "default" service account.
 	if s != nil && s.Spec.ServiceAccountName == "" {
 		s.Spec.ServiceAccountName = "default"
 	}

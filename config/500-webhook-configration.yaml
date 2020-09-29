@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-apiVersion: admissionregistration.k8s.io/v1beta1
+apiVersion: admissionregistration.k8s.io/v1
 kind: MutatingWebhookConfiguration
 metadata:
   name: defaulting.webhook.ceph.sources.knative.dev
@@ -19,15 +19,17 @@ metadata:
     ceph.eventing.knative.dev/release: devel
 webhooks:
   - admissionReviewVersions:
-      - v1beta1
+      - "v1"
+      - "v1beta1"
     clientConfig:
       service:
         name: ceph-source-webhook
         namespace: knative-ceph
     failurePolicy: Fail
     name: defaulting.webhook.ceph.sources.knative.dev
+    sideEffects: None
 ---
-apiVersion: admissionregistration.k8s.io/v1beta1
+apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingWebhookConfiguration
 metadata:
   name: validation.webhook.ceph.sources.knative.dev
@@ -35,23 +37,26 @@ metadata:
     ceph.eventing.knative.dev/release: devel
 webhooks:
   - admissionReviewVersions:
-      - v1beta1
+      - "v1"
+      - "v1beta1"
     clientConfig:
       service:
         name: ceph-source-webhook
         namespace: knative-ceph
     failurePolicy: Fail
     name: validation.webhook.ceph.sources.knative.dev
+    sideEffects: None
 ---
-apiVersion: admissionregistration.k8s.io/v1beta1
+apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingWebhookConfiguration
 metadata:
   name: config.webhook.ceph.sources.knative.dev
   labels:
-    serving.knative.dev/release: devel
+    ceph.eventing.knative.dev/release: devel
 webhooks:
   - admissionReviewVersions:
-      - v1beta1
+      - "v1"
+      - "v1beta1"
     clientConfig:
       service:
         name: ceph-source-webhook
@@ -62,6 +67,7 @@ webhooks:
       matchExpressions:
         - key: ceph.eventing.knative.dev/release
           operator: Exists
+    sideEffects: None
 ---
 apiVersion: v1
 kind: Secret

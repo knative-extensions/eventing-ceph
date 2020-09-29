@@ -33,54 +33,54 @@ const (
 	CephConditionDeployed apis.ConditionType = "Deployed"
 )
 
-var CephCondSet = apis.NewLivingConditionSet(
+var cephCondSet = apis.NewLivingConditionSet(
 	CephConditionSinkProvided,
 	CephConditionDeployed,
 )
 
 // GetCondition returns the condition currently associated with the given type, or nil.
 func (s *CephSourceStatus) GetCondition(t apis.ConditionType) *apis.Condition {
-	return CephCondSet.Manage(s).GetCondition(t)
+	return cephCondSet.Manage(s).GetCondition(t)
 }
 
 // InitializeConditions sets relevant unset conditions to Unknown state.
 func (s *CephSourceStatus) InitializeConditions() {
-	CephCondSet.Manage(s).InitializeConditions()
+	cephCondSet.Manage(s).InitializeConditions()
 }
 
 // GetConditionSet returns CephSource ConditionSet.
 func (*CephSource) GetConditionSet() apis.ConditionSet {
-	return CephCondSet
+	return cephCondSet
 }
 
 // MarkSink sets the condition that the source has a sink configured.
 func (s *CephSourceStatus) MarkSink(uri *apis.URL) {
 	s.SinkURI = uri
 	if len(uri.String()) > 0 {
-		CephCondSet.Manage(s).MarkTrue(CephConditionSinkProvided)
+		cephCondSet.Manage(s).MarkTrue(CephConditionSinkProvided)
 	} else {
-		CephCondSet.Manage(s).MarkUnknown(CephConditionSinkProvided, "SinkEmpty", "Sink has resolved to empty.")
+		cephCondSet.Manage(s).MarkUnknown(CephConditionSinkProvided, "SinkEmpty", "Sink has resolved to empty.")
 	}
 }
 
 // MarkNoSink sets the condition that the source does not have a sink configured.
 func (s *CephSourceStatus) MarkNoSink(reason, messageFormat string, messageA ...interface{}) {
-	CephCondSet.Manage(s).MarkFalse(CephConditionSinkProvided, reason, messageFormat, messageA...)
+	cephCondSet.Manage(s).MarkFalse(CephConditionSinkProvided, reason, messageFormat, messageA...)
 }
 
 // PropagateDeploymentAvailability uses the availability of the provided Deployment to determine if
 // CephConditionDeployed should be marked as true or false.
 func (s *CephSourceStatus) PropagateDeploymentAvailability(d *appsv1.Deployment) {
 	if duck.DeploymentIsAvailable(&d.Status, false) {
-		CephCondSet.Manage(s).MarkTrue(CephConditionDeployed)
+		cephCondSet.Manage(s).MarkTrue(CephConditionDeployed)
 	} else {
 		// I don't know how to propagate the status well, so just give the name of the Deployment
 		// for now.
-		CephCondSet.Manage(s).MarkFalse(CephConditionDeployed, "DeploymentUnavailable", "The Deployment '%s' is unavailable.", d.Name)
+		cephCondSet.Manage(s).MarkFalse(CephConditionDeployed, "DeploymentUnavailable", "The Deployment '%s' is unavailable.", d.Name)
 	}
 }
 
 // IsReady returns true if the resource is ready overall.
 func (s *CephSourceStatus) IsReady() bool {
-	return CephCondSet.Manage(s).IsHappy()
+	return cephCondSet.Manage(s).IsHappy()
 }

@@ -79,6 +79,9 @@ type CephSourceSpec struct {
 	// in which the CephSource exists.
 	// +optional
 	ServiceAccountName string `json:"serviceAccountName,omitempty"`
+
+  // Port holds the port number on which the adapter is listening on
+  Port string `json:"port"`
 }
 
 const (

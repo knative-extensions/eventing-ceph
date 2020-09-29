@@ -18,6 +18,7 @@ package v1alpha1
 
 import (
 	"context"
+	"strconv"
 
 	"knative.dev/pkg/apis"
 )
@@ -43,6 +44,10 @@ func (sspec *CephSourceSpec) Validate(ctx context.Context) *apis.FieldError {
 	if sspec.ServiceAccountName == "" {
 		errs = errs.Also(apis.ErrMissingField("serviceAccountName"))
 	}
+
+  if _, err := strconv.ParseUint(sspec.Port, 10, 16); err != nil {
+    errs = errs.Also(apis.ErrInvalidValue(sspec.Port, "spec.port"))
+  }
 
 	return errs
 }
