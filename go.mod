@@ -11,7 +11,7 @@ require (
 	golang.org/x/tools v0.0.0-20200916195026-c9a70fc28ce3 // indirect
 	gopkg.in/yaml.v3 v3.0.0-20200601152816-913338de1bd2 // indirect
 	honnef.co/go/tools v0.0.1-2020.1.5 // indirect
-	knative.dev/eventing v0.17.1-0.20200923160140-40f5749cd065
+	knative.dev/eventing v0.18.0
 	knative.dev/pkg v0.0.0-20200922164940-4bf40ad82aab
 	knative.dev/test-infra v0.0.0-20200921012245-37f1a12adbd3
 )
