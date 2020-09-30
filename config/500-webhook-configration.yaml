@@ -23,8 +23,8 @@ webhooks:
       - "v1beta1"
     clientConfig:
       service:
-        name: ceph-source-webhook
-        namespace: knative-ceph
+        name: ceph-webhook
+        namespace: knative-source
     failurePolicy: Fail
     name: defaulting.webhook.ceph.sources.knative.dev
     sideEffects: None
@@ -41,8 +41,8 @@ webhooks:
       - "v1beta1"
     clientConfig:
       service:
-        name: ceph-source-webhook
-        namespace: knative-ceph
+        name: ceph-webhook
+        namespace: knative-source
     failurePolicy: Fail
     name: validation.webhook.ceph.sources.knative.dev
     sideEffects: None
@@ -59,8 +59,8 @@ webhooks:
       - "v1beta1"
     clientConfig:
       service:
-        name: ceph-source-webhook
-        namespace: knative-ceph
+        name: ceph-webhook
+        namespace: knative-source
     failurePolicy: Fail
     name: config.webhook.ceph.sources.knative.dev
     namespaceSelector:
@@ -73,7 +73,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: ceph-webhook-certs
-  namespace: knative-ceph
+  namespace: knative-source
   labels:
     ceph.eventing.knative.dev/release: devel
 # The data is populated at install time.

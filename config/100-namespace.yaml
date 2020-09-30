@@ -15,7 +15,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: knative-ceph
+  name: knative-source
   labels:
     istio-injection: enabled
     ceph.eventing.knative.dev/release: devel

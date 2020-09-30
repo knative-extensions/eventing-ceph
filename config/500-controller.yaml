@@ -15,19 +15,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ceph-source-controller
-  namespace: knative-ceph
+  name: ceph-controller
+  namespace: knative-source
   labels:
     ceph.eventing.knative.dev/release: devel
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ceph-source-controller
+      app: ceph-controller
   template:
     metadata:
       labels:
-        app: ceph-source-controller
+        app: ceph-controller
         ceph.eventing.knative.dev/release: devel
     spec:
       # To avoid node becoming SPOF, spread our replicas to different nodes.
@@ -37,11 +37,11 @@ spec:
           - podAffinityTerm:
               labelSelector:
                 matchLabels:
-                  app: ceph-source-controller
+                  app: ceph-controller
               topologyKey: kubernetes.io/hostname
             weight: 100
 
-      serviceAccountName: ceph-source-controller
+      serviceAccountName: ceph-controller
 
       containers:
       - name: controller

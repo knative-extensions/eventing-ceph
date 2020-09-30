@@ -17,11 +17,11 @@ kind: Service
 metadata:
   labels:
     ceph.eventing.knative.dev/release: devel
-    control-plane: ceph-source-controller-manager
-  name: ceph-source-controller-manager
-  namespace: knative-ceph
+    control-plane: ceph-controller-manager
+  name: ceph-controller-manager
+  namespace: knative-source
 spec:
   selector:
-    control-plane: ceph-source-controller-manager
+    control-plane: ceph-controller-manager
   ports:
   - port: 443

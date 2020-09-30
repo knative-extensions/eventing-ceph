@@ -16,7 +16,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: config-observability
-  namespace: knative-ceph
+  namespace: knative-source
 data:
   _example: |
     ################################

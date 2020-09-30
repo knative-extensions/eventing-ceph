@@ -15,16 +15,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ceph-source-webhook
-  namespace: knative-ceph
+  name: ceph-webhook
+  namespace: knative-source
   labels:
     ceph.eventing.knative.dev/release: devel
 spec:
   replicas: 1
   selector:
     matchLabels: &labels
-      app: ceph-source-webhook
-      role: ceph-source-webhook
+      app: ceph-webhook
+      role: ceph-webhook
   template:
     metadata:
       labels: *labels
@@ -36,11 +36,11 @@ spec:
           - podAffinityTerm:
               labelSelector:
                 matchLabels:
-                  app: ceph-source-webhook
+                  app: ceph-webhook
               topologyKey: kubernetes.io/hostname
             weight: 100
 
-      serviceAccountName: ceph-source-webhook
+      serviceAccountName: ceph-webhook
       containers:
         - name: cephsource-webhook
           terminationMessagePolicy: FallbackToLogsOnError
@@ -76,13 +76,13 @@ kind: Service
 metadata:
   labels:
     ceph.eventing.knative.dev/release: devel
-    role: ceph-source-webhook
-  name: ceph-source-webhook
-  namespace: knative-ceph
+    role: ceph-webhook
+  name: ceph-webhook
+  namespace: knative-source
 spec:
   ports:
     - name: https-webhook
       port: 443
       targetPort: 8443
   selector:
-    role: ceph-source-webhook
+    role: ceph-webhook

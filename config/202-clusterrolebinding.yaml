@@ -15,47 +15,47 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: ceph-source-controller-rolebinding
+  name: ceph-controller-rolebinding
   labels:
     ceph.eventing.knative.dev/release: devel
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: ceph-source-controller
+  name: ceph-controller
 subjects:
 - kind: ServiceAccount
-  name: ceph-source-controller
-  namespace: knative-ceph
+  name: ceph-controller
+  namespace: knative-source
 
 ---
 
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: ceph-source-webhook-rolebinding
+  name: ceph-webhook-rolebinding
   labels:
     ceph.eventing.knative.dev/release: devel
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: ceph-source-webhook
+  name: ceph-webhook
 subjects:
   - kind: ServiceAccount
-    name: ceph-source-webhook
-    namespace: knative-ceph
+    name: ceph-webhook
+    namespace: knative-source
 
 ---
 
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: ceph-source-controller-addressable-resolver
+  name: ceph-controller-addressable-resolver
   labels:
     ceph.eventing.knative.dev/release: devel
 subjects:
 - kind: ServiceAccount
-  name: ceph-source-controller
-  namespace: knative-ceph
+  name: ceph-controller
+  namespace: knative-source
 # An aggregated ClusterRole for all Addressable CRDs.
 # Ref: https://knative.dev/eventing/blob/master/config/200-addressable-resolvers-clusterrole.yaml
 roleRef:

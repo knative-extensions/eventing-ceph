@@ -4,8 +4,8 @@ metadata:
   name: ceph-bucket-notifications
 spec:
   selector:
-    app: ceph-source
+    knative-eventing-source-name: ceph-source1
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 19090
+      targetPort: 8888

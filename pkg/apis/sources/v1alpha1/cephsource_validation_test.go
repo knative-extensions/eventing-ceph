@@ -40,7 +40,7 @@ func TestCephSourceValidate(t *testing.T) {
 		"validate ok": {
 			source: CephSource{Spec: CephSourceSpec{
 				ServiceAccountName: "default",
-        Port: "9999",
+				Port:               "9999",
 				SourceSpec: duckv1.SourceSpec{
 					Sink: duckv1.Destination{URI: ParseURL("http://hello.world", t)},
 				},
@@ -73,7 +73,7 @@ func TestCephSourceValidateFail(t *testing.T) {
 		"invalid port number": {
 			source: CephSource{Spec: CephSourceSpec{
 				ServiceAccountName: "default",
-        Port: "12345678",
+				Port:               "12345678",
 				SourceSpec: duckv1.SourceSpec{
 					Sink: duckv1.Destination{URI: ParseURL("http://hello.world", t)},
 				},
@@ -83,15 +83,14 @@ func TestCephSourceValidateFail(t *testing.T) {
 		"missing sink": {
 			source: CephSource{Spec: CephSourceSpec{
 				ServiceAccountName: "default",
-        Port: "9999",
-				SourceSpec: duckv1.SourceSpec{
-				},
+				Port:               "9999",
+				SourceSpec:         duckv1.SourceSpec{},
 			},
 			},
 		},
 		"missing service": {
 			source: CephSource{Spec: CephSourceSpec{
-        Port: "9999",
+				Port: "9999",
 				SourceSpec: duckv1.SourceSpec{
 					Sink: duckv1.Destination{URI: ParseURL("http://hello.world", t)},
 				},

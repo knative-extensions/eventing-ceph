@@ -15,7 +15,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: ceph-source-webhook
+  name: ceph-webhook
   labels:
     ceph.eventing.knative.dev/release: devel
 rules:

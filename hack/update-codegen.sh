@@ -35,7 +35,6 @@ KNATIVE_CODEGEN_PKG=${KNATIVE_CODEGEN_PKG:-$(cd ${REPO_ROOT_DIR}; ls -d -1 $(dir
 chmod +x ${CODEGEN_PKG}/generate-groups.sh
 chmod +x ${KNATIVE_CODEGEN_PKG}/hack/generate-knative.sh
 
-# Uncomment if/when needed for ceph
 API_DIRS_SOURCES_AND_BINDINGS=(pkg )
 
 for DIR in "${API_DIRS_SOURCES_AND_BINDINGS[@]}"; do
