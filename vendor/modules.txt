@@ -888,7 +888,7 @@ k8s.io/utils/buffer
 k8s.io/utils/integer
 k8s.io/utils/pointer
 k8s.io/utils/trace
-# knative.dev/eventing v0.18.0
+# knative.dev/eventing v0.18.1-0.20201001144430-5646fe1b227d
 ## explicit
 knative.dev/eventing/pkg/adapter/v2
 knative.dev/eventing/pkg/adapter/v2/test
@@ -910,6 +910,7 @@ knative.dev/eventing/pkg/apis/messaging/config
 knative.dev/eventing/pkg/apis/messaging/v1
 knative.dev/eventing/pkg/apis/messaging/v1beta1
 knative.dev/eventing/pkg/apis/sources
+knative.dev/eventing/pkg/apis/sources/v1
 knative.dev/eventing/pkg/apis/sources/v1alpha1
 knative.dev/eventing/pkg/apis/sources/v1alpha2
 knative.dev/eventing/pkg/apis/sources/v1beta1
@@ -922,6 +923,7 @@ knative.dev/eventing/pkg/client/clientset/versioned/typed/flows/v1
 knative.dev/eventing/pkg/client/clientset/versioned/typed/flows/v1beta1
 knative.dev/eventing/pkg/client/clientset/versioned/typed/messaging/v1
 knative.dev/eventing/pkg/client/clientset/versioned/typed/messaging/v1beta1
+knative.dev/eventing/pkg/client/clientset/versioned/typed/sources/v1
 knative.dev/eventing/pkg/client/clientset/versioned/typed/sources/v1alpha1
 knative.dev/eventing/pkg/client/clientset/versioned/typed/sources/v1alpha2
 knative.dev/eventing/pkg/client/clientset/versioned/typed/sources/v1beta1
@@ -952,7 +954,7 @@ knative.dev/eventing/test/test_images/print
 knative.dev/eventing/test/test_images/recordevents
 knative.dev/eventing/test/test_images/sequencestepper
 knative.dev/eventing/test/test_images/transformevents
-# knative.dev/pkg v0.0.0-20200922164940-4bf40ad82aab
+# knative.dev/pkg v0.0.0-20201001022229-7c082ac1c01d
 ## explicit
 knative.dev/pkg/apis
 knative.dev/pkg/apis/duck
@@ -1015,7 +1017,7 @@ knative.dev/pkg/tracker
 knative.dev/pkg/version
 knative.dev/pkg/webhook
 knative.dev/pkg/webhook/certificates/resources
-# knative.dev/test-infra v0.0.0-20200921012245-37f1a12adbd3
+# knative.dev/test-infra v0.0.0-20200930161929-242b7529399e
 ## explicit
 knative.dev/test-infra/scripts
 # sigs.k8s.io/structured-merge-diff/v3 v3.0.1-0.20200706213357-43c19bbb7fba
