@@ -957,6 +957,7 @@ knative.dev/eventing/pkg/client/informers/externalversions/messaging
 knative.dev/eventing/pkg/client/informers/externalversions/messaging/v1
 knative.dev/eventing/pkg/client/informers/externalversions/messaging/v1beta1
 knative.dev/eventing/pkg/client/informers/externalversions/sources
+knative.dev/eventing/pkg/client/informers/externalversions/sources/v1
 knative.dev/eventing/pkg/client/informers/externalversions/sources/v1alpha1
 knative.dev/eventing/pkg/client/informers/externalversions/sources/v1alpha2
 knative.dev/eventing/pkg/client/informers/externalversions/sources/v1beta1
@@ -970,6 +971,7 @@ knative.dev/eventing/pkg/client/listers/flows/v1
 knative.dev/eventing/pkg/client/listers/flows/v1beta1
 knative.dev/eventing/pkg/client/listers/messaging/v1
 knative.dev/eventing/pkg/client/listers/messaging/v1beta1
+knative.dev/eventing/pkg/client/listers/sources/v1
 knative.dev/eventing/pkg/client/listers/sources/v1alpha1
 knative.dev/eventing/pkg/client/listers/sources/v1alpha2
 knative.dev/eventing/pkg/client/listers/sources/v1beta1
@@ -1070,11 +1072,11 @@ knative.dev/pkg/version
 knative.dev/pkg/webhook
 knative.dev/pkg/webhook/certificates
 knative.dev/pkg/webhook/certificates/resources
-# knative.dev/test-infra v0.0.0-20200930161929-242b7529399e
 knative.dev/pkg/webhook/configmaps
 knative.dev/pkg/webhook/resourcesemantics
 knative.dev/pkg/webhook/resourcesemantics/defaulting
 knative.dev/pkg/webhook/resourcesemantics/validation
+# knative.dev/test-infra v0.0.0-20200930161929-242b7529399e
 ## explicit
 knative.dev/test-infra/scripts
 # sigs.k8s.io/structured-merge-diff/v3 v3.0.1-0.20200706213357-43c19bbb7fba

@@ -13,12 +13,12 @@ require (
 	golang.org/x/tools v0.0.0-20200916195026-c9a70fc28ce3 // indirect
 	gopkg.in/yaml.v3 v3.0.0-20200601152816-913338de1bd2 // indirect
 	honnef.co/go/tools v0.0.1-2020.1.5 // indirect
-	knative.dev/eventing v0.18.1-0.20201001144430-5646fe1b227d
-	knative.dev/pkg v0.0.0-20201001022229-7c082ac1c01d
-	knative.dev/test-infra v0.0.0-20200930161929-242b7529399e
 	k8s.io/api v0.18.8
 	k8s.io/apimachinery v0.18.8
 	k8s.io/client-go v11.0.1-0.20190805182717-6502b5e7b1b5+incompatible
+	knative.dev/eventing v0.18.1-0.20201001144430-5646fe1b227d
+	knative.dev/pkg v0.0.0-20201001022229-7c082ac1c01d
+	knative.dev/test-infra v0.0.0-20200930161929-242b7529399e
 )
 
 replace (
