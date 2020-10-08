@@ -1,5 +1,5 @@
 /*
-Copyright 2019 The Knative Authors
+Copyright 2020 The Knative Authors
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ import (
 
 	cloudevents "github.com/cloudevents/sdk-go/v2"
 	"go.uber.org/zap"
-	ceph "knative.dev/eventing-ceph/pkg/apis/v1alpha1"
+	ceph "knative.dev/eventing-ceph/pkg/apis/bindings/v1alpha1"
 	"knative.dev/eventing/pkg/adapter/v2"
 	adaptertest "knative.dev/eventing/pkg/adapter/v2/test"
 	"knative.dev/pkg/logging"

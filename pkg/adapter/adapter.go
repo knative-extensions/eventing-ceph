@@ -1,5 +1,5 @@
 /*
-Copyright 2019 The Knative Authors
+Copyright 2020 The Knative Authors
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ import (
 
 	cloudevents "github.com/cloudevents/sdk-go/v2"
 	"go.uber.org/zap"
-	ceph "knative.dev/eventing-ceph/pkg/apis/v1alpha1"
+	ceph "knative.dev/eventing-ceph/pkg/apis/bindings/v1alpha1"
 	"knative.dev/eventing/pkg/adapter/v2"
 	"knative.dev/pkg/logging"
 )
@@ -35,7 +35,7 @@ type envConfig struct {
 	adapter.EnvConfig
 
 	// Port to listen incoming connections
-	Port string `envconfig:"PORT" default:"8080"`
+	Port string `envconfig:"PORT"`
 }
 
 // cephReceiveAdapter converts incoming Ceph notifications to
@@ -72,7 +72,7 @@ func (ca *cephReceiveAdapter) Start(ctx context.Context) error {
 func (ca *cephReceiveAdapter) start(stopCh <-chan struct{}) error {
 	http.HandleFunc("/", ca.postHandler)
 	go http.ListenAndServe(":"+ca.port, nil)
-	ca.logger.Info("Ceph to Knative adapter spawned HTTP server")
+	ca.logger.Info("Ceph to Knative adapter spawned HTTP server on port: " + ca.port)
 	<-stopCh
 
 	ca.logger.Info("Ceph to Knative adapter terminated")
