@@ -63,7 +63,7 @@ type Options struct {
 }
 
 // Operation is the verb being operated on
-// it is aliasde in Validation from the k8s admission package
+// it is aliased in Validation from the k8s admission package
 type Operation = admissionv1.Operation
 
 // Operation types
@@ -181,7 +181,7 @@ func (wh *Webhook) Run(stop <-chan struct{}) error {
 
 	server := &http.Server{
 		Handler: drainer,
-		Addr:    fmt.Sprintf(":%d", wh.Options.Port),
+		Addr:    fmt.Sprint(":", wh.Options.Port),
 		TLSConfig: &tls.Config{
 			MinVersion: tls.VersionTLS12,
 			GetCertificate: func(*tls.ClientHelloInfo) (*tls.Certificate, error) {
