@@ -8,14 +8,13 @@ require (
 	github.com/influxdata/tdigest v0.0.1 // indirect
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/stretchr/testify v1.6.0 // indirect
-	go.opencensus.io v0.22.5-0.20200716030834-3456e1d174b2 // indirect
-	go.uber.org/zap v1.15.0
+	go.uber.org/zap v1.16.0
 	k8s.io/api v0.18.8
 	k8s.io/apimachinery v0.18.8
 	k8s.io/client-go v11.0.1-0.20190805182717-6502b5e7b1b5+incompatible
-	knative.dev/eventing v0.18.1-0.20201028151034-7c24cda5fd71
-	knative.dev/hack v0.0.0-20201027221733-0d7f2f064b7b
-	knative.dev/pkg v0.0.0-20201028142834-e135a1737847
+	knative.dev/eventing v0.18.1-0.20201029043934-af98d5579864
+	knative.dev/hack v0.0.0-20201028205534-fe80f1c8af68
+	knative.dev/pkg v0.0.0-20201029122234-6d905b3f84a6
 )
 
 replace (
