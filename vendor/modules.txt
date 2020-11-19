@@ -521,7 +521,7 @@ gopkg.in/inf.v0
 gopkg.in/yaml.v2
 # gopkg.in/yaml.v3 v3.0.0-20200615113413-eeeca48fe776
 gopkg.in/yaml.v3
-# k8s.io/api v0.18.8 => k8s.io/api v0.18.8
+# k8s.io/api v0.18.12 => k8s.io/api v0.18.8
 ## explicit
 k8s.io/api/admission/v1
 k8s.io/api/admissionregistration/v1
@@ -564,13 +564,13 @@ k8s.io/api/settings/v1alpha1
 k8s.io/api/storage/v1
 k8s.io/api/storage/v1alpha1
 k8s.io/api/storage/v1beta1
-# k8s.io/apiextensions-apiserver v0.18.8 => k8s.io/apiextensions-apiserver v0.18.8
+# k8s.io/apiextensions-apiserver v0.18.12 => k8s.io/apiextensions-apiserver v0.18.8
 k8s.io/apiextensions-apiserver/pkg/apis/apiextensions
 k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1
 k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1beta1
 k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset/scheme
 k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset/typed/apiextensions/v1beta1
-# k8s.io/apimachinery v0.18.8 => k8s.io/apimachinery v0.18.8
+# k8s.io/apimachinery v0.18.12 => k8s.io/apimachinery v0.18.8
 ## explicit
 k8s.io/apimachinery/pkg/api/equality
 k8s.io/apimachinery/pkg/api/errors
@@ -794,7 +794,7 @@ k8s.io/client-go/util/jsonpath
 k8s.io/client-go/util/keyutil
 k8s.io/client-go/util/retry
 k8s.io/client-go/util/workqueue
-# k8s.io/code-generator v0.18.8 => k8s.io/code-generator v0.18.8
+# k8s.io/code-generator v0.18.12 => k8s.io/code-generator v0.18.8
 k8s.io/code-generator
 k8s.io/code-generator/cmd/client-gen
 k8s.io/code-generator/cmd/client-gen/args
@@ -855,7 +855,7 @@ k8s.io/utils/buffer
 k8s.io/utils/integer
 k8s.io/utils/pointer
 k8s.io/utils/trace
-# knative.dev/eventing v0.19.1-0.20201112173800-1648d90fd680
+# knative.dev/eventing v0.19.1-0.20201119013252-7c1b89c10721
 ## explicit
 knative.dev/eventing/pkg/adapter/v2
 knative.dev/eventing/pkg/adapter/v2/test
@@ -881,6 +881,7 @@ knative.dev/eventing/pkg/apis/sources/v1
 knative.dev/eventing/pkg/apis/sources/v1alpha1
 knative.dev/eventing/pkg/apis/sources/v1alpha2
 knative.dev/eventing/pkg/apis/sources/v1beta1
+knative.dev/eventing/pkg/apis/sources/v1beta2
 knative.dev/eventing/pkg/client/clientset/versioned
 knative.dev/eventing/pkg/client/clientset/versioned/scheme
 knative.dev/eventing/pkg/client/clientset/versioned/typed/configs/v1alpha1
@@ -894,6 +895,7 @@ knative.dev/eventing/pkg/client/clientset/versioned/typed/sources/v1
 knative.dev/eventing/pkg/client/clientset/versioned/typed/sources/v1alpha1
 knative.dev/eventing/pkg/client/clientset/versioned/typed/sources/v1alpha2
 knative.dev/eventing/pkg/client/clientset/versioned/typed/sources/v1beta1
+knative.dev/eventing/pkg/client/clientset/versioned/typed/sources/v1beta2
 knative.dev/eventing/pkg/client/informers/externalversions
 knative.dev/eventing/pkg/client/informers/externalversions/configs
 knative.dev/eventing/pkg/client/informers/externalversions/configs/v1alpha1
@@ -912,6 +914,7 @@ knative.dev/eventing/pkg/client/informers/externalversions/sources/v1
 knative.dev/eventing/pkg/client/informers/externalversions/sources/v1alpha1
 knative.dev/eventing/pkg/client/informers/externalversions/sources/v1alpha2
 knative.dev/eventing/pkg/client/informers/externalversions/sources/v1beta1
+knative.dev/eventing/pkg/client/informers/externalversions/sources/v1beta2
 knative.dev/eventing/pkg/client/injection/client
 knative.dev/eventing/pkg/client/injection/informers/eventing/v1beta1/broker
 knative.dev/eventing/pkg/client/injection/informers/factory
@@ -926,6 +929,7 @@ knative.dev/eventing/pkg/client/listers/sources/v1
 knative.dev/eventing/pkg/client/listers/sources/v1alpha1
 knative.dev/eventing/pkg/client/listers/sources/v1alpha2
 knative.dev/eventing/pkg/client/listers/sources/v1beta1
+knative.dev/eventing/pkg/client/listers/sources/v1beta2
 knative.dev/eventing/pkg/kncloudevents
 knative.dev/eventing/pkg/reconciler/source
 knative.dev/eventing/pkg/utils
@@ -953,10 +957,10 @@ knative.dev/eventing/test/test_images/heartbeats
 knative.dev/eventing/test/test_images/performance
 knative.dev/eventing/test/test_images/print
 knative.dev/eventing/test/test_images/recordevents
-# knative.dev/hack v0.0.0-20201112185459-01a34c573bd8
+# knative.dev/hack v0.0.0-20201118155651-b31d3bb6bff9
 ## explicit
 knative.dev/hack
-# knative.dev/pkg v0.0.0-20201112201059-93fedf141385
+# knative.dev/pkg v0.0.0-20201117221452-0fccc54273ed
 ## explicit
 knative.dev/pkg/apis
 knative.dev/pkg/apis/duck
