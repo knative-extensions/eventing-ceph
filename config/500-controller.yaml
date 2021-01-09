@@ -66,6 +66,10 @@ spec:
             value: knative.dev/sources
           - name: CEPH_SOURCE_RA_IMAGE
             value: ko://knative.dev/eventing-ceph/cmd/receive_adapter
+          - name: POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
 
         securityContext:
           allowPrivilegeEscalation: false
