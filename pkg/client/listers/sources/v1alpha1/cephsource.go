@@ -26,8 +26,10 @@ import (
 )
 
 // CephSourceLister helps list CephSources.
+// All objects returned here must be treated as read-only.
 type CephSourceLister interface {
 	// List lists all CephSources in the indexer.
+	// Objects returned here must be treated as read-only.
 	List(selector labels.Selector) (ret []*v1alpha1.CephSource, err error)
 	// CephSources returns an object that can list and get CephSources.
 	CephSources(namespace string) CephSourceNamespaceLister
@@ -58,10 +60,13 @@ func (s *cephSourceLister) CephSources(namespace string) CephSourceNamespaceList
 }
 
 // CephSourceNamespaceLister helps list and get CephSources.
+// All objects returned here must be treated as read-only.
 type CephSourceNamespaceLister interface {
 	// List lists all CephSources in the indexer for a given namespace.
+	// Objects returned here must be treated as read-only.
 	List(selector labels.Selector) (ret []*v1alpha1.CephSource, err error)
 	// Get retrieves the CephSource from the indexer for a given namespace and name.
+	// Objects returned here must be treated as read-only.
 	Get(name string) (*v1alpha1.CephSource, error)
 	CephSourceNamespaceListerExpansion
 }
