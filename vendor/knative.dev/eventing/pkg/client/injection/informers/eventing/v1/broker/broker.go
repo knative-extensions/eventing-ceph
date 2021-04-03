@@ -21,7 +21,7 @@ package broker
 import (
 	context "context"
 
-	v1beta1 "knative.dev/eventing/pkg/client/informers/externalversions/eventing/v1beta1"
+	v1 "knative.dev/eventing/pkg/client/informers/externalversions/eventing/v1"
 	factory "knative.dev/eventing/pkg/client/injection/informers/factory"
 	controller "knative.dev/pkg/controller"
 	injection "knative.dev/pkg/injection"
@@ -37,16 +37,16 @@ type Key struct{}
 
 func withInformer(ctx context.Context) (context.Context, controller.Informer) {
 	f := factory.Get(ctx)
-	inf := f.Eventing().V1beta1().Brokers()
+	inf := f.Eventing().V1().Brokers()
 	return context.WithValue(ctx, Key{}, inf), inf.Informer()
 }
 
 // Get extracts the typed informer from the context.
-func Get(ctx context.Context) v1beta1.BrokerInformer {
+func Get(ctx context.Context) v1.BrokerInformer {
 	untyped := ctx.Value(Key{})
 	if untyped == nil {
 		logging.FromContext(ctx).Panic(
-			"Unable to fetch knative.dev/eventing/pkg/client/informers/externalversions/eventing/v1beta1.BrokerInformer from context.")
+			"Unable to fetch knative.dev/eventing/pkg/client/informers/externalversions/eventing/v1.BrokerInformer from context.")
 	}
-	return untyped.(v1beta1.BrokerInformer)
+	return untyped.(v1.BrokerInformer)
 }
