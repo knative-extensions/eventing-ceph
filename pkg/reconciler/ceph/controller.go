@@ -35,7 +35,7 @@ import (
 	cephsourceinformer "knative.dev/eventing-ceph/pkg/client/injection/informers/sources/v1alpha1/cephsource"
 	"knative.dev/eventing-ceph/pkg/client/injection/reconciler/sources/v1alpha1/cephsource"
 	eventingclient "knative.dev/eventing/pkg/client/injection/client"
-	sinkbindinginformer "knative.dev/eventing/pkg/client/injection/informers/eventing/v1beta1/broker"
+	brokerinformer "knative.dev/eventing/pkg/client/injection/informers/eventing/v1/broker"
 	kubeclient "knative.dev/pkg/client/injection/kube/client"
 	deploymentinformer "knative.dev/pkg/client/injection/kube/informers/apps/v1/deployment"
 )
@@ -47,7 +47,7 @@ func NewController(
 	cmw configmap.Watcher,
 ) *controller.Impl {
 	deploymentInformer := deploymentinformer.Get(ctx)
-	sinkBindingInformer := sinkbindinginformer.Get(ctx)
+	brokerInformer := brokerinformer.Get(ctx)
 	cephSourceInformer := cephsourceinformer.Get(ctx)
 
 	r := &Reconciler{
@@ -71,7 +71,7 @@ func NewController(
 		Handler:    controller.HandleAll(impl.EnqueueControllerOf),
 	})
 
-	sinkBindingInformer.Informer().AddEventHandler(cache.FilteringResourceEventHandler{
+	brokerInformer.Informer().AddEventHandler(cache.FilteringResourceEventHandler{
 		FilterFunc: controller.FilterControllerGK(v1alpha1.Kind("CephSource")),
 		Handler:    controller.HandleAll(impl.EnqueueControllerOf),
 	})
