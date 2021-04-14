@@ -6,5 +6,5 @@ spec:
   template:
     spec:
       containers:
-        - name: display-container
-          image: gcr.io/knative-releases/knative.dev/eventing-contrib/cmd/event_display:latest
+      - name: display-container
+        image: quay.io/openshift-knative/knative-eventing-sources-event-display
