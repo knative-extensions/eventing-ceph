@@ -7,4 +7,4 @@ spec:
     spec:
       containers:
       - name: display-container
-        image: quay.io/openshift-knative/knative-eventing-sources-event-display
+        image: gcr.io/knative-releases/knative.dev/eventing-contrib/cmd/event_display:latest
