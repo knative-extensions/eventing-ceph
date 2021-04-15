@@ -26,7 +26,7 @@ import (
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"knative.dev/eventing-ceph/pkg/reconciler/resources"
-	"knative.dev/eventing/pkg/apis/sources/v1"
+	v1 "knative.dev/eventing/pkg/apis/sources/v1"
 	eventingclient "knative.dev/eventing/pkg/client/clientset/versioned"
 	duckv1 "knative.dev/pkg/apis/duck/v1"
 	"knative.dev/pkg/kmeta"
@@ -63,7 +63,7 @@ func (r *SinkBindingReconciler) ReconcileSinkBinding(ctx context.Context, owner 
 	namespace := owner.GetObjectMeta().GetNamespace()
 	sb, err := r.EventingClientSet.SourcesV1().SinkBindings(namespace).Get(ctx, expected.Name, metav1.GetOptions{})
 	if apierrors.IsNotFound(err) {
-    sb, err = r.EventingClientSet.SourcesV1().SinkBindings(namespace).Create(ctx, expected, metav1.CreateOptions{})
+		sb, err = r.EventingClientSet.SourcesV1().SinkBindings(namespace).Create(ctx, expected, metav1.CreateOptions{})
 		if err != nil {
 			return nil, newSinkBindingFailed(expected.Namespace, expected.Name, err)
 		}
