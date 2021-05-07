@@ -17,6 +17,7 @@ kind: ClusterRole
 metadata:
   name: ceph-controller
   labels:
+    duck.knative.dev/source: "true"
     ceph.eventing.knative.dev/release: devel
 rules:
 - apiGroups:
