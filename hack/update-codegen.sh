@@ -42,7 +42,7 @@ group "Knative Codegen"
 
 # Knative Injection
 ${KNATIVE_CODEGEN_PKG}/hack/generate-knative.sh "injection" \
-  "knative.dev/eventing-ceph/${DIR}/client" "knative.dev/eventing-ceph/${DIR}/apis" \
+  "knative.dev/eventing-ceph/pkg/client" "knative.dev/eventing-ceph/pkg/apis" \
   "sources:v1alpha1" \
   --go-header-file ${REPO_ROOT_DIR}/hack/boilerplate.go.txt
 
