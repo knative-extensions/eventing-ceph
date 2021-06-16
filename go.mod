@@ -8,12 +8,12 @@ require (
 	github.com/influxdata/tdigest v0.0.1 // indirect
 	github.com/kelseyhightower/envconfig v1.4.0
 	go.uber.org/zap v1.17.0
-	k8s.io/api v0.19.7
-	k8s.io/apimachinery v0.19.7
-	k8s.io/client-go v0.19.7
-	knative.dev/eventing v0.23.1-0.20210608195942-28319c374b5e
-	knative.dev/hack v0.0.0-20210608140741-1c52c48385ca
-	knative.dev/pkg v0.0.0-20210608193741-f19eef192438
+	k8s.io/api v0.20.7
+	k8s.io/apimachinery v0.20.7
+	k8s.io/client-go v0.20.7
+	knative.dev/eventing v0.23.1-0.20210615213121-4eb1738b5e35
+	knative.dev/hack v0.0.0-20210614141220-66ab1a098940
+	knative.dev/pkg v0.0.0-20210615143321-77ff8d962c73
 )
 
 replace (
