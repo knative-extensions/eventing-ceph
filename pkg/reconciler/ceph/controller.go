@@ -54,7 +54,7 @@ func NewController(
 		dr:  &reconciler.DeploymentReconciler{KubeClientSet: kubeclient.Get(ctx)},
 		sbr: &reconciler.SinkBindingReconciler{EventingClientSet: eventingclient.Get(ctx)},
 		// Config accessor takes care of tracing/config/logging config propagation to the receive adapter
-		configAccessor: reconcilersource.WatchConfigurations(ctx, "ceph-source", cmw),
+		configAccessor: reconcilersource.WatchConfigurations(ctx, "cephsource", cmw),
 	}
 	if err := envconfig.Process("", r); err != nil {
 		logging.FromContext(ctx).Panicf("required environment variable is not defined: %v", err)

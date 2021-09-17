@@ -31,6 +31,10 @@ import (
 	"knative.dev/pkg/logging"
 )
 
+const (
+	resourceGroup = "cephsources.sources.knative.dev"
+)
+
 type envConfig struct {
 	adapter.EnvConfig
 
@@ -41,9 +45,11 @@ type envConfig struct {
 // cephReceiveAdapter converts incoming Ceph notifications to
 // CloudEvents and then sends them to the specified Sink
 type cephReceiveAdapter struct {
-	logger *zap.SugaredLogger
-	client cloudevents.Client
-	port   string
+	logger    *zap.SugaredLogger
+	client    cloudevents.Client
+	port      string
+	name      string
+	namespace string
 }
 
 // NewEnvConfig function reads env variables defined in envConfig structure and
@@ -58,9 +64,11 @@ func NewAdapter(ctx context.Context, processed adapter.EnvConfigAccessor, ceClie
 	env := processed.(*envConfig)
 
 	return &cephReceiveAdapter{
-		logger: logger,
-		client: ceClient,
-		port:   env.Port,
+		logger:    logger,
+		client:    ceClient,
+		port:      env.Port,
+		name:      env.Name,
+		namespace: env.Namespace,
 	}
 }
 
@@ -97,10 +105,16 @@ func (ca *cephReceiveAdapter) postMessage(notification ceph.BucketNotification) 
 	if err != nil {
 		return fmt.Errorf("failed to marshal event data: %w", err)
 	}
-
+	ctx := context.Background()
+	metricTag := &adapter.MetricTag{
+		Namespace:     ca.namespace,
+		Name:          ca.name,
+		ResourceGroup: resourceGroup,
+	}
+	ctx = adapter.ContextWithMetricTag(ctx, metricTag)
 	ca.logger.Infof("Sending CloudEvent: %v", event)
 
-	result := ca.client.Send(context.Background(), event)
+	result := ca.client.Send(ctx, event)
 	if !cloudevents.IsACK(result) {
 		return result
 	}
@@ -109,6 +123,7 @@ func (ca *cephReceiveAdapter) postMessage(notification ceph.BucketNotification) 
 
 // postHandler handles incoming bucket notifications from ceph
 func (ca *cephReceiveAdapter) postHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Allow", "POST")
 	if r.Method != "POST" {
 		ca.logger.Infof("%s method not allowed", r.Method)
 		http.Error(w, "405 Method Not Allowed", http.StatusBadRequest)
