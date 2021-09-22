@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Knative Authors
+Copyright 2021 The Knative Authors
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -112,12 +112,26 @@ func (ca *cephReceiveAdapter) postMessage(notification ceph.BucketNotification) 
 		ResourceGroup: resourceGroup,
 	}
 	ctx = adapter.ContextWithMetricTag(ctx, metricTag)
-	ca.logger.Infof("Sending CloudEvent: %v", event)
 
-	result := ca.client.Send(ctx, event)
-	if !cloudevents.IsACK(result) {
+	if err := ca.sendCloudEvent(ctx, event); err != nil {
+		return err
+	}
+	return nil
+}
+
+// sendCloudEvent sends a cloudevent for a ceph notification.
+func (ca *cephReceiveAdapter) sendCloudEvent(ctx context.Context, event cloudevents.Event) error {
+	defer ca.logger.Debug("Finished sending cloudevent id: ", event.ID())
+	source := event.Context.GetSource()
+	subject := event.Context.GetSubject()
+	ca.logger.Debugf("sending cloudevent id: %s, source: %s, subject: %s", event.ID(), source, subject)
+
+	if result := ca.client.Send(ctx, event); !cloudevents.IsACK(result) {
+		ca.logger.Errorw("failed to send cloudevent", zap.Error(result), zap.String("source", source),
+			zap.String("subject", subject), zap.String("id", event.ID()))
 		return result
 	}
+	ca.logger.Debugf("cloudevent sent id: %s, source: %s, subject: %s", event.ID(), source, subject)
 	return nil
 }
 
@@ -145,13 +159,10 @@ func (ca *cephReceiveAdapter) postHandler(w http.ResponseWriter, r *http.Request
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
-	ca.logger.Infof("%d events found in message", len(notifications.Records))
+	ca.logger.Debugf("%d events found in message", len(notifications.Records))
 	for _, notification := range notifications.Records {
-		ca.logger.Infof("Received Ceph bucket notification: %+v", notification)
-		if err := ca.postMessage(notification); err == nil {
-			ca.logger.Infof("Event %s was successfully posted to knative", notification.EventID)
-		} else {
-			ca.logger.Infof("Failed to post event %s: %s", notification.EventID, err.Error())
+		ca.logger.Debugf("Received Ceph bucket notification: %+v", notification)
+		if err := ca.postMessage(notification); err != nil {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
