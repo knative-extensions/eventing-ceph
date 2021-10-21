@@ -113,15 +113,11 @@ func (ca *cephReceiveAdapter) postMessage(notification ceph.BucketNotification) 
 	}
 	ctx = adapter.ContextWithMetricTag(ctx, metricTag)
 
-	if err := ca.sendCloudEvent(ctx, event); err != nil {
-		return err
-	}
-	return nil
+	return ca.sendCloudEvent(ctx, event)
 }
 
 // sendCloudEvent sends a cloudevent for a ceph notification.
 func (ca *cephReceiveAdapter) sendCloudEvent(ctx context.Context, event cloudevents.Event) error {
-	defer ca.logger.Debug("Finished sending cloudevent id: ", event.ID())
 	source := event.Context.GetSource()
 	subject := event.Context.GetSubject()
 	ca.logger.Debugf("sending cloudevent id: %s, source: %s, subject: %s", event.ID(), source, subject)
