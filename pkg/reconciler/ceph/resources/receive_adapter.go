@@ -65,9 +65,13 @@ func MakeReceiveAdapter(args *ReceiveAdapterArgs) *v1.Deployment {
 							Name:  "receive-adapter",
 							Image: args.Image,
 							Env: append(
-								makeEnv(&args.Source.Spec),
+								makeEnv(args),
 								args.AdditionalEnvs...,
 							),
+							Ports: []corev1.ContainerPort{{
+								Name:          "metrics",
+								ContainerPort: 9090,
+							}},
 						},
 					},
 				},
@@ -76,7 +80,7 @@ func MakeReceiveAdapter(args *ReceiveAdapterArgs) *v1.Deployment {
 	}
 }
 
-func makeEnv(spec *v1alpha1.CephSourceSpec) []corev1.EnvVar {
+func makeEnv(args *ReceiveAdapterArgs) []corev1.EnvVar {
 	return []corev1.EnvVar{{
 		Name: "NAMESPACE",
 		ValueFrom: &corev1.EnvVarSource{
@@ -85,15 +89,11 @@ func makeEnv(spec *v1alpha1.CephSourceSpec) []corev1.EnvVar {
 			},
 		},
 	}, {
-		Name: "NAME",
-		ValueFrom: &corev1.EnvVarSource{
-			FieldRef: &corev1.ObjectFieldSelector{
-				FieldPath: "metadata.name",
-			},
-		},
+		Name:  "NAME",
+		Value: args.Source.Name,
 	}, {
 		Name:  "PORT",
-		Value: spec.Port,
+		Value: args.Source.Spec.Port,
 	}, {
 		Name:  "METRICS_DOMAIN",
 		Value: "knative.dev/eventing",
