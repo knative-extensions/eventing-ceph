@@ -944,12 +944,12 @@ k8s.io/kube-openapi/pkg/generators/rules
 k8s.io/kube-openapi/pkg/util/proto
 k8s.io/kube-openapi/pkg/util/sets
 k8s.io/kube-openapi/pkg/validation/spec
-# k8s.io/utils v0.0.0-20210819203725-bdf08cb9a70a
+# k8s.io/utils v0.0.0-20211208161948-7d6a63dca704
 k8s.io/utils/buffer
 k8s.io/utils/integer
 k8s.io/utils/pointer
 k8s.io/utils/trace
-# knative.dev/eventing v0.28.1-0.20220112214912-de8918823b0e
+# knative.dev/eventing v0.28.1-0.20220118155632-76366bce7449
 ## explicit
 knative.dev/eventing/pkg/adapter/v2
 knative.dev/eventing/pkg/adapter/v2/test
@@ -1032,10 +1032,10 @@ knative.dev/eventing/test/test_images/heartbeats
 knative.dev/eventing/test/test_images/performance
 knative.dev/eventing/test/test_images/print
 knative.dev/eventing/test/test_images/recordevents
-# knative.dev/hack v0.0.0-20220111151514-59b0cf17578e
+# knative.dev/hack v0.0.0-20220118141833-9b2ed8471e30
 ## explicit
 knative.dev/hack
-# knative.dev/pkg v0.0.0-20220112181951-2b23ad111bc2
+# knative.dev/pkg v0.0.0-20220118151132-768f44f3fce2
 ## explicit
 knative.dev/pkg/apis
 knative.dev/pkg/apis/duck
