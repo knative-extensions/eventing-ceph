@@ -117,7 +117,7 @@ func (c *FakeCephSources) UpdateStatus(ctx context.Context, cephSource *v1alpha1
 // Delete takes name of the cephSource and deletes it. Returns an error if one occurs.
 func (c *FakeCephSources) Delete(ctx context.Context, name string, opts v1.DeleteOptions) error {
 	_, err := c.Fake.
-		Invokes(testing.NewDeleteAction(cephsourcesResource, c.ns, name), &v1alpha1.CephSource{})
+		Invokes(testing.NewDeleteActionWithOptions(cephsourcesResource, c.ns, name, opts), &v1alpha1.CephSource{})
 
 	return err
 }
