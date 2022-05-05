@@ -1070,7 +1070,7 @@ k8s.io/utils/internal/third_party/forked/golang/net
 k8s.io/utils/net
 k8s.io/utils/pointer
 k8s.io/utils/trace
-# knative.dev/eventing v0.31.1-0.20220427174252-2219e1485934
+# knative.dev/eventing v0.31.1-0.20220505082027-22e2a2cff566
 ## explicit; go 1.16
 knative.dev/eventing/pkg/adapter/v2
 knative.dev/eventing/pkg/adapter/v2/test
@@ -1153,10 +1153,10 @@ knative.dev/eventing/test/test_images/heartbeats
 knative.dev/eventing/test/test_images/performance
 knative.dev/eventing/test/test_images/print
 knative.dev/eventing/test/test_images/recordevents
-# knative.dev/hack v0.0.0-20220427014036-5f473869d377
+# knative.dev/hack v0.0.0-20220505013956-ccf82ad03f32
 ## explicit; go 1.14
 knative.dev/hack
-# knative.dev/pkg v0.0.0-20220427171752-2d552be030f6
+# knative.dev/pkg v0.0.0-20220505013700-a8b7d99374a3
 ## explicit; go 1.17
 knative.dev/pkg/apis
 knative.dev/pkg/apis/duck
