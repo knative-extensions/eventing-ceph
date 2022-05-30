@@ -5,14 +5,16 @@ go 1.17
 require (
 	github.com/cloudevents/sdk-go/v2 v2.8.0
 	github.com/google/go-cmp v0.5.6
+	github.com/hashicorp/go-cleanhttp v0.5.1
+	github.com/hashicorp/golang-lru v0.5.4
 	github.com/kelseyhightower/envconfig v1.4.0
 	go.uber.org/zap v1.19.1
 	k8s.io/api v0.23.5
 	k8s.io/apimachinery v0.23.5
 	k8s.io/client-go v0.23.5
-	knative.dev/eventing v0.31.1-0.20220524171403-1096fc257608
+	knative.dev/eventing v0.31.1-0.20220525061503-56edb3b87dca
 	knative.dev/hack v0.0.0-20220524153203-12d3e2a7addc
-	knative.dev/pkg v0.0.0-20220524202603-19adf798efb8
+	knative.dev/pkg v0.0.0-20220525153005-18f69958870f
 )
 
 require (
@@ -58,9 +60,7 @@ require (
 	github.com/googleapis/gax-go/v2 v2.1.1 // indirect
 	github.com/googleapis/gnostic v0.5.5 // indirect
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0 // indirect
-	github.com/hashicorp/go-cleanhttp v0.5.1 // indirect
 	github.com/hashicorp/go-retryablehttp v0.6.7 // indirect
-	github.com/hashicorp/golang-lru v0.5.4 // indirect
 	github.com/imdario/mergo v0.3.9 // indirect
 	github.com/influxdata/tdigest v0.0.1 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
@@ -117,11 +117,4 @@ require (
 	sigs.k8s.io/json v0.0.0-20211020170558-c049b76a60c6 // indirect
 	sigs.k8s.io/structured-merge-diff/v4 v4.2.1 // indirect
 	sigs.k8s.io/yaml v1.3.0 // indirect
-)
-
-replace (
-	github.com/Azure/go-autorest/autorest => github.com/Azure/go-autorest/autorest v0.9.6
-	github.com/prometheus/client_golang => github.com/prometheus/client_golang v0.9.2
-	gomodules.xyz/jsonpatch/v2 => github.com/gomodules/jsonpatch/v2 v2.1.0
-	vbom.ml/util => github.com/fvbommel/util v0.0.2
 )
