@@ -3,16 +3,16 @@ module knative.dev/eventing-ceph
 go 1.17
 
 require (
-	github.com/cloudevents/sdk-go/v2 v2.8.0
+	github.com/cloudevents/sdk-go/v2 v2.10.1
 	github.com/google/go-cmp v0.5.6
 	github.com/kelseyhightower/envconfig v1.4.0
-	go.uber.org/zap v1.19.1
+	go.uber.org/zap v1.21.0
 	k8s.io/api v0.23.5
 	k8s.io/apimachinery v0.23.5
 	k8s.io/client-go v0.23.5
-	knative.dev/eventing v0.32.0
-	knative.dev/hack v0.0.0-20220524153203-12d3e2a7addc
-	knative.dev/pkg v0.0.0-20220524202603-19adf798efb8
+	knative.dev/eventing v0.32.1-0.20220614135415-c1b0ea692715
+	knative.dev/hack v0.0.0-20220610014127-dc6c287516dc
+	knative.dev/pkg v0.0.0-20220610014025-7d607d643ee2
 )
 
 require (
@@ -24,6 +24,7 @@ require (
 	github.com/PuerkitoBio/purell v1.1.1 // indirect
 	github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578 // indirect
 	github.com/antlr/antlr4/runtime/Go/antlr v0.0.0-20211221011931-643d94fcab96 // indirect
+	github.com/benbjohnson/clock v1.1.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/blang/semver/v4 v4.0.0 // indirect
 	github.com/blendle/zapdriver v1.3.1 // indirect
@@ -87,7 +88,7 @@ require (
 	go.opencensus.io v0.23.0 // indirect
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/automaxprocs v1.4.0 // indirect
-	go.uber.org/multierr v1.6.0 // indirect
+	go.uber.org/multierr v1.8.0 // indirect
 	golang.org/x/crypto v0.0.0-20220214200702-86341886e292 // indirect
 	golang.org/x/mod v0.5.1 // indirect
 	golang.org/x/net v0.0.0-20220225172249-27dd8689420f // indirect
