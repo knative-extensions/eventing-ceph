@@ -3,16 +3,16 @@ module knative.dev/eventing-ceph
 go 1.18
 
 require (
-	github.com/cloudevents/sdk-go/v2 v2.10.1
+	github.com/cloudevents/sdk-go/v2 v2.12.0
 	github.com/google/go-cmp v0.5.6
 	github.com/kelseyhightower/envconfig v1.4.0
 	go.uber.org/zap v1.21.0
 	k8s.io/api v0.24.4
 	k8s.io/apimachinery v0.24.4
 	k8s.io/client-go v0.24.4
-	knative.dev/eventing v0.34.1-0.20220928014117-bd37622589a4
-	knative.dev/hack v0.0.0-20220928014218-68872175ea9c
-	knative.dev/pkg v0.0.0-20220928014015-6d718681cd8c
+	knative.dev/eventing v0.34.1-0.20220929193317-16771b5fa6ee
+	knative.dev/hack v0.0.0-20220929150817-019890274b9c
+	knative.dev/pkg v0.0.0-20220929013917-2b8e4ad44f04
 )
 
 require (
@@ -30,8 +30,8 @@ require (
 	github.com/blendle/zapdriver v1.3.1 // indirect
 	github.com/census-instrumentation/opencensus-proto v0.3.0 // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
-	github.com/cloudevents/sdk-go/observability/opencensus/v2 v2.4.1 // indirect
-	github.com/cloudevents/sdk-go/sql/v2 v2.8.0 // indirect
+	github.com/cloudevents/sdk-go/observability/opencensus/v2 v2.12.0 // indirect
+	github.com/cloudevents/sdk-go/sql/v2 v2.12.0 // indirect
 	github.com/cncf/udpa/go v0.0.0-20210930031921-04548b0d99d4 // indirect
 	github.com/cncf/xds/go v0.0.0-20211011173535-cb28da3451f1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
