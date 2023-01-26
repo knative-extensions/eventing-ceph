@@ -20,7 +20,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"sync"
@@ -129,7 +129,7 @@ func TestRecords(t *testing.T) {
 		t.Error(err)
 	}
 	defer result.Body.Close()
-	_, err = ioutil.ReadAll(result.Body)
+	_, err = io.ReadAll(result.Body)
 	if err != nil {
 		t.Error(err)
 	}
@@ -143,7 +143,7 @@ type fakeSink struct {
 
 func (h *fakeSink) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
-	body, err := ioutil.ReadAll(r.Body)
+	body, err := io.ReadAll(r.Body)
 	if err != nil {
 		h.t.Error(err)
 		w.WriteHeader(http.StatusBadRequest)

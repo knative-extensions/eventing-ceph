@@ -20,7 +20,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"time"
 
@@ -140,7 +140,7 @@ func (ca *cephReceiveAdapter) postHandler(w http.ResponseWriter, r *http.Request
 		return
 	}
 
-	body, err := ioutil.ReadAll(r.Body)
+	body, err := io.ReadAll(r.Body)
 	if err != nil {
 		ca.logger.Infof("Error reading message body: %s", err.Error())
 		http.Error(w, err.Error(), http.StatusBadRequest)
