@@ -14,22 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package v1beta2
+// This file is need to work around a gengo/go1.20 issue
+// details https://github.com/ahmetb/gen-crd-api-reference-docs/issues/61
 
-import (
-	"context"
-)
-
-func (et *EventType) SetDefaults(ctx context.Context) {
-	et.Spec.SetDefaults(ctx)
-	setReferenceNs(et)
-}
-
-func (ets *EventTypeSpec) SetDefaults(ctx context.Context) {
-}
-
-func setReferenceNs(et *EventType) {
-	if et.Spec.Reference != nil && et.Spec.Reference.Namespace == "" {
-		et.Spec.Reference.Namespace = et.GetNamespace()
-	}
-}
+package apis
