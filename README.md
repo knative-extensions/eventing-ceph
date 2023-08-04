@@ -2,10 +2,10 @@
 
 **[These components are BETA](https://github.com/knative/community/tree/main/mechanics/MATURITY-LEVELS.md)**
 
-[![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white)](https://pkg.go.dev/github.com/knative-sandbox/eventing-ceph)
-[![Go Report Card](https://goreportcard.com/badge/knative/eventing-contrib)](https://goreportcard.com/report/knative-sandbox/eventing-ceph)
-[![Releases](https://img.shields.io/github/release-pre/knative/eventing-contrib.svg)](https://github.com/knative-sandbox/eventing-ceph/releases)
-[![LICENSE](https://img.shields.io/github/license/knative/eventing-contrib.svg)](https://github.com/knative-sandbox/eventing-ceph/blob/master/LICENSE)
+[![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white)](https://pkg.go.dev/github.com/knative-extensions/eventing-ceph)
+[![Go Report Card](https://goreportcard.com/badge/knative/eventing-contrib)](https://goreportcard.com/report/knative-extensions/eventing-ceph)
+[![Releases](https://img.shields.io/github/release-pre/knative/eventing-contrib.svg)](https://github.com/knative-extensions/eventing-ceph/releases)
+[![LICENSE](https://img.shields.io/github/license/knative/eventing-contrib.svg)](https://github.com/knative-extensions/eventing-ceph/blob/master/LICENSE)
 [![Slack Status](https://img.shields.io/badge/slack-join_chat-white.svg?logo=slack&style=social)](https://knative.slack.com)
 
 The Knative Eventing Ceph project provides source implementation that registers
