@@ -23,7 +23,6 @@ import (
 
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	labels "k8s.io/apimachinery/pkg/labels"
-	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	types "k8s.io/apimachinery/pkg/types"
 	watch "k8s.io/apimachinery/pkg/watch"
 	testing "k8s.io/client-go/testing"
@@ -36,9 +35,9 @@ type FakeCephSources struct {
 	ns   string
 }
 
-var cephsourcesResource = schema.GroupVersionResource{Group: "sources.knative.dev", Version: "v1alpha1", Resource: "cephsources"}
+var cephsourcesResource = v1alpha1.SchemeGroupVersion.WithResource("cephsources")
 
-var cephsourcesKind = schema.GroupVersionKind{Group: "sources.knative.dev", Version: "v1alpha1", Kind: "CephSource"}
+var cephsourcesKind = v1alpha1.SchemeGroupVersion.WithKind("CephSource")
 
 // Get takes name of the cephSource, and returns the corresponding cephSource object, and an error if there is any.
 func (c *FakeCephSources) Get(ctx context.Context, name string, options v1.GetOptions) (result *v1alpha1.CephSource, err error) {
