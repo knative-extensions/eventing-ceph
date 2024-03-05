@@ -4,7 +4,7 @@ cloud.google.com/go/internal
 cloud.google.com/go/internal/optional
 cloud.google.com/go/internal/trace
 cloud.google.com/go/internal/version
-# cloud.google.com/go/compute v1.23.4
+# cloud.google.com/go/compute v1.24.0
 ## explicit; go 1.19
 cloud.google.com/go/compute/internal
 # cloud.google.com/go/compute/metadata v0.2.3
@@ -14,7 +14,7 @@ cloud.google.com/go/compute/metadata
 ## explicit; go 1.19
 cloud.google.com/go/iam
 cloud.google.com/go/iam/apiv1/iampb
-# cloud.google.com/go/storage v1.38.0
+# cloud.google.com/go/storage v1.39.0
 ## explicit; go 1.19
 cloud.google.com/go/storage
 cloud.google.com/go/storage/internal
@@ -287,8 +287,8 @@ github.com/pkg/errors
 # github.com/pmezard/go-difflib v1.0.0
 ## explicit
 github.com/pmezard/go-difflib/difflib
-# github.com/prometheus/client_golang v1.18.0
-## explicit; go 1.19
+# github.com/prometheus/client_golang v1.19.0
+## explicit; go 1.20
 github.com/prometheus/client_golang/prometheus
 github.com/prometheus/client_golang/prometheus/internal
 github.com/prometheus/client_golang/prometheus/promhttp
@@ -518,12 +518,12 @@ google.golang.org/appengine/internal/modules
 google.golang.org/appengine/internal/remote_api
 google.golang.org/appengine/internal/urlfetch
 google.golang.org/appengine/urlfetch
-# google.golang.org/genproto v0.0.0-20240205150955-31a09d347014
+# google.golang.org/genproto v0.0.0-20240213162025-012b6fc9bca9
 ## explicit; go 1.19
 google.golang.org/genproto/googleapis/type/date
 google.golang.org/genproto/googleapis/type/expr
 google.golang.org/genproto/internal
-# google.golang.org/genproto/googleapis/api v0.0.0-20240205150955-31a09d347014
+# google.golang.org/genproto/googleapis/api v0.0.0-20240221002015-b0ce06bbee7c
 ## explicit; go 1.19
 google.golang.org/genproto/googleapis/api
 google.golang.org/genproto/googleapis/api/annotations
@@ -1102,7 +1102,7 @@ k8s.io/utils/pointer
 k8s.io/utils/ptr
 k8s.io/utils/strings/slices
 k8s.io/utils/trace
-# knative.dev/eventing v0.40.1-0.20240301204729-1a9b0daf82af
+# knative.dev/eventing v0.40.1-0.20240305062317-2645b503e4d5
 ## explicit; go 1.21
 knative.dev/eventing/cmd/heartbeats
 knative.dev/eventing/pkg/adapter/v2
@@ -1202,7 +1202,7 @@ knative.dev/eventing/test/test_images/recordevents
 # knative.dev/hack v0.0.0-20240302114326-e6dedc74dc47
 ## explicit; go 1.18
 knative.dev/hack
-# knative.dev/pkg v0.0.0-20240301013300-145b9017fff8
+# knative.dev/pkg v0.0.0-20240304225122-181596eba93a
 ## explicit; go 1.21
 knative.dev/pkg/apis
 knative.dev/pkg/apis/duck
