@@ -10,9 +10,9 @@ require (
 	k8s.io/api v0.29.2
 	k8s.io/apimachinery v0.29.2
 	k8s.io/client-go v0.29.2
-	knative.dev/eventing v0.40.1-0.20240402102742-4cec55450957
-	knative.dev/hack v0.0.0-20240327150553-47368d631660
-	knative.dev/pkg v0.0.0-20240402144403-fef5da99bd14
+	knative.dev/eventing v0.40.1-0.20240404013432-ce5b77fc2d0c
+	knative.dev/hack v0.0.0-20240404013450-1133b37da8d7
+	knative.dev/pkg v0.0.0-20240404013351-5d4af76051e4
 )
 
 require (
@@ -88,6 +88,7 @@ require (
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/stretchr/testify v1.8.4 // indirect
 	github.com/tsenart/vegeta/v12 v12.11.1 // indirect
+	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.49.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.49.0 // indirect
