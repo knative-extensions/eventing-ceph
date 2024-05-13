@@ -27,5 +27,5 @@ func main() {
 	ctx := signals.NewContext()
 	ctx = adapter.WithInjectorEnabled(ctx)
 
-	adapter.Main("cephsource", cephadapter.NewEnvConfig, cephadapter.NewAdapter)
+	adapter.MainWithContext(ctx, "cephsource", cephadapter.NewEnvConfig, cephadapter.NewAdapter)
 }
