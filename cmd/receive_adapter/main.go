@@ -18,10 +18,14 @@ package main
 
 import (
 	"knative.dev/eventing/pkg/adapter/v2"
+	"knative.dev/pkg/signals"
 
 	cephadapter "knative.dev/eventing-ceph/pkg/adapter"
 )
 
 func main() {
-	adapter.Main("cephsource", cephadapter.NewEnvConfig, cephadapter.NewAdapter)
+	ctx := signals.NewContext()
+	ctx = adapter.WithInjectorEnabled(ctx)
+
+	adapter.MainWithContext(ctx, "cephsource", cephadapter.NewEnvConfig, cephadapter.NewAdapter)
 }
