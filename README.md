@@ -7,6 +7,7 @@
 [![Releases](https://img.shields.io/github/release-pre/knative/eventing-contrib.svg)](https://github.com/knative-extensions/eventing-ceph/releases)
 [![LICENSE](https://img.shields.io/github/license/knative/eventing-contrib.svg)](https://github.com/knative-extensions/eventing-ceph/blob/master/LICENSE)
 [![Slack Status](https://img.shields.io/badge/slack-join_chat-white.svg?logo=slack&style=social)](https://knative.slack.com)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fknative-extensions%2Feventing-ceph.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fknative-extensions%2Feventing-ceph?ref=badge_shield)
 
 The Knative Eventing Ceph project provides source implementation that registers
 events for Ceph storage notifications.
@@ -81,3 +82,7 @@ kubectl exec test -- curl -d "@records.json" -X POST my-ceph-source-svc.default.
 ```bash
 kubectl logs -l serving.knative.dev/service=event-display -c display-container --tail=100
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fknative-extensions%2Feventing-ceph.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fknative-extensions%2Feventing-ceph?ref=badge_large)
