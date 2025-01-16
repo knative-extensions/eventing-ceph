@@ -19,8 +19,8 @@ limitations under the License.
 package v1alpha1
 
 import (
-	"k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/labels"
+	"k8s.io/client-go/listers"
 	"k8s.io/client-go/tools/cache"
 	v1alpha1 "knative.dev/eventing-ceph/pkg/apis/sources/v1alpha1"
 )
@@ -38,25 +38,17 @@ type CephSourceLister interface {
 
 // cephSourceLister implements the CephSourceLister interface.
 type cephSourceLister struct {
-	indexer cache.Indexer
+	listers.ResourceIndexer[*v1alpha1.CephSource]
 }
 
 // NewCephSourceLister returns a new CephSourceLister.
 func NewCephSourceLister(indexer cache.Indexer) CephSourceLister {
-	return &cephSourceLister{indexer: indexer}
-}
-
-// List lists all CephSources in the indexer.
-func (s *cephSourceLister) List(selector labels.Selector) (ret []*v1alpha1.CephSource, err error) {
-	err = cache.ListAll(s.indexer, selector, func(m interface{}) {
-		ret = append(ret, m.(*v1alpha1.CephSource))
-	})
-	return ret, err
+	return &cephSourceLister{listers.New[*v1alpha1.CephSource](indexer, v1alpha1.Resource("cephsource"))}
 }
 
 // CephSources returns an object that can list and get CephSources.
 func (s *cephSourceLister) CephSources(namespace string) CephSourceNamespaceLister {
-	return cephSourceNamespaceLister{indexer: s.indexer, namespace: namespace}
+	return cephSourceNamespaceLister{listers.NewNamespaced[*v1alpha1.CephSource](s.ResourceIndexer, namespace)}
 }
 
 // CephSourceNamespaceLister helps list and get CephSources.
@@ -74,26 +66,5 @@ type CephSourceNamespaceLister interface {
 // cephSourceNamespaceLister implements the CephSourceNamespaceLister
 // interface.
 type cephSourceNamespaceLister struct {
-	indexer   cache.Indexer
-	namespace string
-}
-
-// List lists all CephSources in the indexer for a given namespace.
-func (s cephSourceNamespaceLister) List(selector labels.Selector) (ret []*v1alpha1.CephSource, err error) {
-	err = cache.ListAllByNamespace(s.indexer, s.namespace, selector, func(m interface{}) {
-		ret = append(ret, m.(*v1alpha1.CephSource))
-	})
-	return ret, err
-}
-
-// Get retrieves the CephSource from the indexer for a given namespace and name.
-func (s cephSourceNamespaceLister) Get(name string) (*v1alpha1.CephSource, error) {
-	obj, exists, err := s.indexer.GetByKey(s.namespace + "/" + name)
-	if err != nil {
-		return nil, err
-	}
-	if !exists {
-		return nil, errors.NewNotFound(v1alpha1.Resource("cephsource"), name)
-	}
-	return obj.(*v1alpha1.CephSource), nil
+	listers.ResourceIndexer[*v1alpha1.CephSource]
 }
