@@ -41,22 +41,24 @@ var cephsourcesKind = v1alpha1.SchemeGroupVersion.WithKind("CephSource")
 
 // Get takes name of the cephSource, and returns the corresponding cephSource object, and an error if there is any.
 func (c *FakeCephSources) Get(ctx context.Context, name string, options v1.GetOptions) (result *v1alpha1.CephSource, err error) {
+	emptyResult := &v1alpha1.CephSource{}
 	obj, err := c.Fake.
-		Invokes(testing.NewGetAction(cephsourcesResource, c.ns, name), &v1alpha1.CephSource{})
+		Invokes(testing.NewGetActionWithOptions(cephsourcesResource, c.ns, name, options), emptyResult)
 
 	if obj == nil {
-		return nil, err
+		return emptyResult, err
 	}
 	return obj.(*v1alpha1.CephSource), err
 }
 
 // List takes label and field selectors, and returns the list of CephSources that match those selectors.
 func (c *FakeCephSources) List(ctx context.Context, opts v1.ListOptions) (result *v1alpha1.CephSourceList, err error) {
+	emptyResult := &v1alpha1.CephSourceList{}
 	obj, err := c.Fake.
-		Invokes(testing.NewListAction(cephsourcesResource, cephsourcesKind, c.ns, opts), &v1alpha1.CephSourceList{})
+		Invokes(testing.NewListActionWithOptions(cephsourcesResource, cephsourcesKind, c.ns, opts), emptyResult)
 
 	if obj == nil {
-		return nil, err
+		return emptyResult, err
 	}
 
 	label, _, _ := testing.ExtractFromListOptions(opts)
@@ -75,40 +77,43 @@ func (c *FakeCephSources) List(ctx context.Context, opts v1.ListOptions) (result
 // Watch returns a watch.Interface that watches the requested cephSources.
 func (c *FakeCephSources) Watch(ctx context.Context, opts v1.ListOptions) (watch.Interface, error) {
 	return c.Fake.
-		InvokesWatch(testing.NewWatchAction(cephsourcesResource, c.ns, opts))
+		InvokesWatch(testing.NewWatchActionWithOptions(cephsourcesResource, c.ns, opts))
 
 }
 
 // Create takes the representation of a cephSource and creates it.  Returns the server's representation of the cephSource, and an error, if there is any.
 func (c *FakeCephSources) Create(ctx context.Context, cephSource *v1alpha1.CephSource, opts v1.CreateOptions) (result *v1alpha1.CephSource, err error) {
+	emptyResult := &v1alpha1.CephSource{}
 	obj, err := c.Fake.
-		Invokes(testing.NewCreateAction(cephsourcesResource, c.ns, cephSource), &v1alpha1.CephSource{})
+		Invokes(testing.NewCreateActionWithOptions(cephsourcesResource, c.ns, cephSource, opts), emptyResult)
 
 	if obj == nil {
-		return nil, err
+		return emptyResult, err
 	}
 	return obj.(*v1alpha1.CephSource), err
 }
 
 // Update takes the representation of a cephSource and updates it. Returns the server's representation of the cephSource, and an error, if there is any.
 func (c *FakeCephSources) Update(ctx context.Context, cephSource *v1alpha1.CephSource, opts v1.UpdateOptions) (result *v1alpha1.CephSource, err error) {
+	emptyResult := &v1alpha1.CephSource{}
 	obj, err := c.Fake.
-		Invokes(testing.NewUpdateAction(cephsourcesResource, c.ns, cephSource), &v1alpha1.CephSource{})
+		Invokes(testing.NewUpdateActionWithOptions(cephsourcesResource, c.ns, cephSource, opts), emptyResult)
 
 	if obj == nil {
-		return nil, err
+		return emptyResult, err
 	}
 	return obj.(*v1alpha1.CephSource), err
 }
 
 // UpdateStatus was generated because the type contains a Status member.
 // Add a +genclient:noStatus comment above the type to avoid generating UpdateStatus().
-func (c *FakeCephSources) UpdateStatus(ctx context.Context, cephSource *v1alpha1.CephSource, opts v1.UpdateOptions) (*v1alpha1.CephSource, error) {
+func (c *FakeCephSources) UpdateStatus(ctx context.Context, cephSource *v1alpha1.CephSource, opts v1.UpdateOptions) (result *v1alpha1.CephSource, err error) {
+	emptyResult := &v1alpha1.CephSource{}
 	obj, err := c.Fake.
-		Invokes(testing.NewUpdateSubresourceAction(cephsourcesResource, "status", c.ns, cephSource), &v1alpha1.CephSource{})
+		Invokes(testing.NewUpdateSubresourceActionWithOptions(cephsourcesResource, "status", c.ns, cephSource, opts), emptyResult)
 
 	if obj == nil {
-		return nil, err
+		return emptyResult, err
 	}
 	return obj.(*v1alpha1.CephSource), err
 }
@@ -123,7 +128,7 @@ func (c *FakeCephSources) Delete(ctx context.Context, name string, opts v1.Delet
 
 // DeleteCollection deletes a collection of objects.
 func (c *FakeCephSources) DeleteCollection(ctx context.Context, opts v1.DeleteOptions, listOpts v1.ListOptions) error {
-	action := testing.NewDeleteCollectionAction(cephsourcesResource, c.ns, listOpts)
+	action := testing.NewDeleteCollectionActionWithOptions(cephsourcesResource, c.ns, opts, listOpts)
 
 	_, err := c.Fake.Invokes(action, &v1alpha1.CephSourceList{})
 	return err
@@ -131,11 +136,12 @@ func (c *FakeCephSources) DeleteCollection(ctx context.Context, opts v1.DeleteOp
 
 // Patch applies the patch and returns the patched cephSource.
 func (c *FakeCephSources) Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts v1.PatchOptions, subresources ...string) (result *v1alpha1.CephSource, err error) {
+	emptyResult := &v1alpha1.CephSource{}
 	obj, err := c.Fake.
-		Invokes(testing.NewPatchSubresourceAction(cephsourcesResource, c.ns, name, pt, data, subresources...), &v1alpha1.CephSource{})
+		Invokes(testing.NewPatchSubresourceActionWithOptions(cephsourcesResource, c.ns, name, pt, data, opts, subresources...), emptyResult)
 
 	if obj == nil {
-		return nil, err
+		return emptyResult, err
 	}
 	return obj.(*v1alpha1.CephSource), err
 }
