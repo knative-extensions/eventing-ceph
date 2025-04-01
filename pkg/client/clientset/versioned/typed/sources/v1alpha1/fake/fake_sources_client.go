@@ -29,7 +29,7 @@ type FakeSourcesV1alpha1 struct {
 }
 
 func (c *FakeSourcesV1alpha1) CephSources(namespace string) v1alpha1.CephSourceInterface {
-	return &FakeCephSources{c, namespace}
+	return newFakeCephSources(c, namespace)
 }
 
 // RESTClient returns a RESTClient that is used to communicate
