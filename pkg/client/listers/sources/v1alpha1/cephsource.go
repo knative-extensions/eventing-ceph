@@ -19,10 +19,10 @@ limitations under the License.
 package v1alpha1
 
 import (
-	"k8s.io/apimachinery/pkg/labels"
-	"k8s.io/client-go/listers"
-	"k8s.io/client-go/tools/cache"
-	v1alpha1 "knative.dev/eventing-ceph/pkg/apis/sources/v1alpha1"
+	labels "k8s.io/apimachinery/pkg/labels"
+	listers "k8s.io/client-go/listers"
+	cache "k8s.io/client-go/tools/cache"
+	sourcesv1alpha1 "knative.dev/eventing-ceph/pkg/apis/sources/v1alpha1"
 )
 
 // CephSourceLister helps list CephSources.
@@ -30,7 +30,7 @@ import (
 type CephSourceLister interface {
 	// List lists all CephSources in the indexer.
 	// Objects returned here must be treated as read-only.
-	List(selector labels.Selector) (ret []*v1alpha1.CephSource, err error)
+	List(selector labels.Selector) (ret []*sourcesv1alpha1.CephSource, err error)
 	// CephSources returns an object that can list and get CephSources.
 	CephSources(namespace string) CephSourceNamespaceLister
 	CephSourceListerExpansion
@@ -38,17 +38,17 @@ type CephSourceLister interface {
 
 // cephSourceLister implements the CephSourceLister interface.
 type cephSourceLister struct {
-	listers.ResourceIndexer[*v1alpha1.CephSource]
+	listers.ResourceIndexer[*sourcesv1alpha1.CephSource]
 }
 
 // NewCephSourceLister returns a new CephSourceLister.
 func NewCephSourceLister(indexer cache.Indexer) CephSourceLister {
-	return &cephSourceLister{listers.New[*v1alpha1.CephSource](indexer, v1alpha1.Resource("cephsource"))}
+	return &cephSourceLister{listers.New[*sourcesv1alpha1.CephSource](indexer, sourcesv1alpha1.Resource("cephsource"))}
 }
 
 // CephSources returns an object that can list and get CephSources.
 func (s *cephSourceLister) CephSources(namespace string) CephSourceNamespaceLister {
-	return cephSourceNamespaceLister{listers.NewNamespaced[*v1alpha1.CephSource](s.ResourceIndexer, namespace)}
+	return cephSourceNamespaceLister{listers.NewNamespaced[*sourcesv1alpha1.CephSource](s.ResourceIndexer, namespace)}
 }
 
 // CephSourceNamespaceLister helps list and get CephSources.
@@ -56,15 +56,15 @@ func (s *cephSourceLister) CephSources(namespace string) CephSourceNamespaceList
 type CephSourceNamespaceLister interface {
 	// List lists all CephSources in the indexer for a given namespace.
 	// Objects returned here must be treated as read-only.
-	List(selector labels.Selector) (ret []*v1alpha1.CephSource, err error)
+	List(selector labels.Selector) (ret []*sourcesv1alpha1.CephSource, err error)
 	// Get retrieves the CephSource from the indexer for a given namespace and name.
 	// Objects returned here must be treated as read-only.
-	Get(name string) (*v1alpha1.CephSource, error)
+	Get(name string) (*sourcesv1alpha1.CephSource, error)
 	CephSourceNamespaceListerExpansion
 }
 
 // cephSourceNamespaceLister implements the CephSourceNamespaceLister
 // interface.
 type cephSourceNamespaceLister struct {
-	listers.ResourceIndexer[*v1alpha1.CephSource]
+	listers.ResourceIndexer[*sourcesv1alpha1.CephSource]
 }
