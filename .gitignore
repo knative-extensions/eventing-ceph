@@ -7,4 +7,4 @@ cover.out
 bin/
 *.swp
 .history
-tags
+./tags
