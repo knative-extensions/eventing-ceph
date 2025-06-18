@@ -28,4 +28,7 @@ import (
 	_ "knative.dev/eventing/test/test_images/event-sender"
 	_ "knative.dev/eventing/test/test_images/print"
 	_ "knative.dev/eventing/test/test_images/recordevents"
+
+	// K8s code generation tools
+	_ "k8s.io/code-generator/cmd/validation-gen"
 )
