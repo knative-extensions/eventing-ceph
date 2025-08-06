@@ -19,11 +19,11 @@ import (
 	"context"
 
 	"k8s.io/apimachinery/pkg/runtime/schema"
+	o11yconfigmap "knative.dev/eventing/pkg/observability/configmap"
 	"knative.dev/pkg/configmap"
 	"knative.dev/pkg/controller"
 	"knative.dev/pkg/injection/sharedmain"
 	"knative.dev/pkg/logging"
-	"knative.dev/pkg/metrics"
 	"knative.dev/pkg/signals"
 	"knative.dev/pkg/webhook"
 	"knative.dev/pkg/webhook/certificates"
@@ -110,7 +110,7 @@ func NewConfigValidationController(ctx context.Context, cmw configmap.Watcher) *
 		// The configmaps to validate.
 		configmap.Constructors{
 			logging.ConfigMapName(): logging.NewConfigFromConfigMap,
-			metrics.ConfigMapName(): metrics.NewObservabilityConfigFromConfigMap,
+			o11yconfigmap.Name():    o11yconfigmap.Parse,
 		},
 	)
 }
