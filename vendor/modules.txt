@@ -1224,10 +1224,10 @@ knative.dev/eventing/test/test_images
 knative.dev/eventing/test/test_images/event-sender
 knative.dev/eventing/test/test_images/print
 knative.dev/eventing/test/test_images/recordevents
-# knative.dev/hack v0.0.0-20251016122918-f2be520302e8
+# knative.dev/hack v0.0.0-20251022160748-50b120a65f30
 ## explicit; go 1.21
 knative.dev/hack
-# knative.dev/pkg v0.0.0-20251022154045-7da1174b871b
+# knative.dev/pkg v0.0.0-20251022162148-4ebd86bc2d85
 ## explicit; go 1.24.0
 knative.dev/pkg/apis
 knative.dev/pkg/apis/duck
